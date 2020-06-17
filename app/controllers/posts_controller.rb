@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   end
   
   def update
+    @post = Post.find(params[:id])
+
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
@@ -20,10 +22,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    if @post.update(post_params)
+    @post = Post.new(author_params)
+
+    if @authpostor.valid?
+      @post.save
       redirect_to post_path(@post)
     else
-      render :edit
+      render :new
     end
   end
 
