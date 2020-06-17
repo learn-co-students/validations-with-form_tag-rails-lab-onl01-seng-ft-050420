@@ -15,6 +15,11 @@ class AuthorsController < ApplicationController
   else
     render :edit
   end
+    if @author.update(author_params)
+      redirect_to author_path(@author)
+    else
+      render :edit
+    end
   end
   
   def new
