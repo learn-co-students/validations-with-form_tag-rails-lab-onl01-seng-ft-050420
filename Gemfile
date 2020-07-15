@@ -11,7 +11,7 @@ gem 'rails-controller-testing'
 gem 'bootsnap'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry'  
   gem 'capybara'
 end
 
