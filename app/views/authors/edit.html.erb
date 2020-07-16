@@ -1,4 +1,4 @@
-<h2>Create an Author</h2>
+<h2>Edit an Author</h2>
 <% if @author.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
@@ -10,21 +10,21 @@
     </ul>
   </div>
 <% end %>
-<%= form_tag authors_path, method: "post" do %>
-  <div class="field<%= '_with_errors' if @author.errors[:name].any? %>">
+<%= form_tag author_path(@author.id), method: "patch" do %>
+  <div class="field">
     <%= label_tag "name", "Name" %>
     <%= text_field_tag "name", @author.name %>
   </div>
 
-  <div class="field<%= '_with_errors' if @author.errors[:email].any? %>">
+  <div class="field">
     <%= label_tag "email", "Email" %>
     <%= text_field_tag "email", @author.email %>
   </div>
 
-  <div class="field<%= '_with_errors' if @author.errors[:phone_number].any? %> ">
+  <div class="field">
     <%= label_tag "phone_number", "Phone Number" %>
     <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
 
-  <%= submit_tag "Create" %>
+  <%= submit_tag "Finish Edit" %>
 <% end %>
